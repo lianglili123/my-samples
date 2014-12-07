@@ -6,7 +6,7 @@ public class Run {
 
 	public static void main(String[] args){
 	    
-		FootPrint obj=new FootPrint(Level.TRACE);
+		FootPrint obj=new FootPrint(Level.OFF);
 		obj.walk();
 		obj.run();
 		obj.see();
