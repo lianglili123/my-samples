@@ -7,7 +7,9 @@
 <html>
 <body>
 <h1>Hello world!</h1>
-<a href="home">home</a>
+<c:out value="${writer.id }"/><br>
+<c:out value="${writer.name }"/><br>
+<c:out value="${writer.email }"/><br>
 
 </body>
 </html>
