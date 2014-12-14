@@ -12,11 +12,7 @@
 	<!-- Uncomment and add your base-package here: <context:component-scan base-package="org.springframework.samples.service"/> -->
 	<context:annotation-config />
 	<context:component-scan base-package="my.sample.helloworld.*" />
-	<!-- <bean id="writer" class="my.sample.helloworld.entities.Writer"> -->
-	<!-- <property name="name"> -->
-	<!-- <value>lili</value> -->
-	<!-- </property> -->
-	<!-- </bean> -->
+
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="url">
@@ -36,9 +32,6 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<!-- <property name="configurationClass"> -->
-		<!-- <value>org.hibernate.cfg.AnnotationConfiguration</value> -->
-		<!-- </property> -->
 		<property name="configLocation">
 			<value>classpath:hibernate/hibernate.cfg.xml</value>
 		</property>
@@ -50,11 +43,5 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="txManager" />
-<!-- 	<sws:annotation-driven/> -->
-	<!-- publishing wsdl -->
-<!-- 	<sws:dynamic-wsdl id="writers" -->
-<!--     portTypeName="writer" -->
-<!--     locationUri="http://localhost:8080/helloworld/ws/"> -->
-<!--   <sws:xsd location="classpath:xsd/writer.xsd"/> -->
-<!-- </sws:dynamic-wsdl> -->
+
 </beans>

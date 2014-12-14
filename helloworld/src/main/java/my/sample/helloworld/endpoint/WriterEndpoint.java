@@ -23,7 +23,7 @@ public class WriterEndpoint {
 		Writer writer = dao.getWriter(Integer.parseInt(request.getId()));
 		GetWriterResponse response = new GetWriterResponse();
 		response.setWriter(writer.getWsWriter(writer));
-		return null;
+		return response;
 	}
 
 }
