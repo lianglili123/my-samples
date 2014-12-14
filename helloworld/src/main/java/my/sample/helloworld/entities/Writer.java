@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import my.sample.helloworld.writer.ObjectFactory;
+
 @Entity
 @Table(name="writer")
 public class Writer implements Serializable{
@@ -54,4 +56,11 @@ public class Writer implements Serializable{
 		this.email = email;
 	}
 	
+	public my.sample.helloworld.writer.Writer getWsWriter(Writer writer){
+		my.sample.helloworld.writer.Writer wsw=new my.sample.helloworld.writer.Writer();
+		wsw.setId(Integer.toString(writer.getId()));
+		wsw.setName(writer.getName());
+		wsw.setEmail(writer.getEmail());
+		return wsw;
+	}
 }

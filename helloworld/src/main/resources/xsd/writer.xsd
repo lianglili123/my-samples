@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://helloworld.sample.my/writer/" targetNamespace="http://helloworld.sample.my/writer/">
+    <complexType name="writer">
+    	<attribute name="id" type="string"></attribute>
+    	<attribute name="name" type="string"></attribute>
+    	<attribute name="email" type="string"></attribute>
+    </complexType>
+
+    <element name="getWriterRequest" >
+    	<complexType>
+    	<sequence><element name="id" type="string"></element></sequence>
+    	</complexType>
+    </element>
+    
+    <simpleType name="id">
+    	<restriction base="string"></restriction>
+    </simpleType>
+
+    <element name="getWriterResponse" >
+    	<complexType>
+    	<sequence><element name="writer" type="tns:writer"></element></sequence>
+    	</complexType>
+    </element>
+</schema>

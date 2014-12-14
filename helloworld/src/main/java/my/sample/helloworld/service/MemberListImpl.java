@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class MemberListImpl implements MemberList {
 
 	@Override
-	public Writer getWriter(String name) {
+	public Writer getWriter(String id) {
 		
 		return null;
 	}
