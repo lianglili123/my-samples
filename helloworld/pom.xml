@@ -161,6 +161,8 @@
 					<clearOutputDir>false</clearOutputDir>
 				</configuration>
 			</plugin>
+			
+		
 		</plugins>
 	</build>
 </project>

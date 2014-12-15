@@ -11,26 +11,31 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository("writerDao")
 public class WriterDaoImpl implements WriterDao {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
-    public WriterDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-    
-    public WriterDaoImpl(){};
+
+	public WriterDaoImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	public WriterDaoImpl() {
+	};
+
 	@Override
 	@Transactional
 	public Writer getWriter(int id) {
 
-		return (Writer) sessionFactory.getCurrentSession().get(Writer.class, id);
+		return (Writer) sessionFactory.getCurrentSession()
+				.get(Writer.class, id);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
-	public List<Writer> getWriterList(){
-		return (List<Writer>) sessionFactory.getCurrentSession().createCriteria(Writer.class).list();
+	public List<Writer> getWriterList() {
+		return (List<Writer>) sessionFactory.getCurrentSession()
+				.createCriteria(Writer.class).list();
 	}
 
 }
