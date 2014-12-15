@@ -1,9 +1,9 @@
 package my.sample.helloworld.client;
 
+import my.sample.helloworld.client.gen.GetWriterResponse;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import my.sample.helloworld.client.gen.GetWriterResponse;
 
 public class Run {
 
