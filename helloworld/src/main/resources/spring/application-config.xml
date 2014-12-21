@@ -37,37 +37,14 @@
 		<property name="configLocation">
 			<value>classpath:hibernate/hibernate.cfg.xml</value>
 		</property>
-		<!-- <property name="hibernateProperties"> -->
-		<!-- <props> -->
-		<!-- <prop key="hibernate.current_session_context_class">managed</prop> -->
-		<!-- </props> -->
-		<!-- </property> -->
-
 	</bean>
 
 	<bean id="txManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager" >
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-<!-- 	<tx:advice id="txAdvice" transaction-manager="txManager"> -->
-<!-- 		<tx:attributes> -->
-<!-- 			<tx:method name="*" /> -->
-<!-- 		</tx:attributes> -->
-<!-- 	</tx:advice> -->
-
-<!-- 	<aop:aspectj-autoproxy /> -->
-	<tx:annotation-driven transaction-manager="txManager"  />
+	<tx:annotation-driven transaction-manager="txManager" />
 
 
-<!-- 	<aop:config> -->
-<!-- 		<aop:advisor advice-ref="txAdvice" -->
-<!-- 			pointcut="execution(* my.sample.helloworld.dao.*.*(..))" /> -->
-		<!-- <aop:pointcut expression="" id=""/> -->
-<!-- 		<aop:aspect id="loggingAspect" ref="loggingAspect"> -->
-		
-<!-- 		</aop:aspect> -->
-<!-- 	</aop:config> -->
-	
-<!-- 	<bean id="loggingAspect" class="my.sample.helloworld.aop.LoggingAspect" scope="singleton"></bean> -->
 </beans>
