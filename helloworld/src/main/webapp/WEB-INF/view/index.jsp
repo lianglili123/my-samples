@@ -13,12 +13,14 @@
 </header>
 <body>
 	<h1>Hello world!</h1>
-	<form:form method="POST" action="login" commandName="login">
-			<form:input path="userid"/>
-			<form:password path="password"/>
+	<h2>A Scratch Login</h2>
+	<div>
+		<form:form method="POST" action="login" commandName="login">
+			<form:input path="userid" />
+			<form:password path="password" />
 			<form:button name="login">login</form:button>
-<!-- 		<button type="submit">login</button> -->
-	</form:form>
+		</form:form>
+	</div>
 	<div id="mynetwork"></div>
 	<script type="text/javascript">
 		// create an array with nodes

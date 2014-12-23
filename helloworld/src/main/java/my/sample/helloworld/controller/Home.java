@@ -5,6 +5,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletResponse;
 
 import my.sample.helloworld.dao.WriterDao;
+import my.sample.helloworld.email.EmailSender;
 import my.sample.helloworld.entities.Writer;
 import my.sample.helloworld.model.LoginModel;
 
@@ -16,13 +17,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@SessionAttributes("writer")
 public class Home {
 
 	@Autowired
 	WriterDao dao;
+	@Autowired
+	EmailSender sender;
 
 	Logger log = Logger.getLogger(this.getClass());
 
@@ -37,10 +42,11 @@ public class Home {
 	public String loginMapping(@ModelAttribute("login") LoginModel lm,Model model) {
 		String userid = lm.getUserid();
 		String password = lm.getPassword();
+		Writer writer=dao.getWriter(Integer.parseInt(userid));
 
-		if (userid.equals( password)) {
+		if (writer.getPassword().equals( password)) {
 			log.info("1:"+userid+":"+password);
-			model.addAttribute("writer", dao.getWriter(Integer.parseInt(userid)));
+			model.addAttribute("writer", writer);
 		} else {
 			log.info("2:"+userid+":"+password);
 		}
@@ -69,6 +75,21 @@ public class Home {
 	@RequestMapping(value = "/js", method = RequestMethod.GET)
 	public String js(HttpServletResponse response, Locale locale, Model model) {
 		return "js";
+	}
+	
+	@RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
+	public String sendMapping(@ModelAttribute("writer") Writer writer,Model model) {
+		Boolean isSent=false;
+		if(writer.getEmail()!=null){
+			try{
+				sender.sendEmail(writer.getEmail());
+			}catch(Exception e){
+				return "home";
+			}
+			isSent=true;
+		}
+		model.addAttribute("isSent", isSent);
+		return "home";
 	}
 
 }
