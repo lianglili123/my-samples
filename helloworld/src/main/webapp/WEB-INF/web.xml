@@ -11,7 +11,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		- Applied by ContextLoaderListener. -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/application-config.xml,classpath:spring/application-ws.xml</param-value>
+		<param-value>classpath:spring/application-config.xml</param-value>
 	</context-param>
 
 	<listener>
@@ -53,6 +53,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>dispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	<welcome-file-list><welcome-file>/views/index.jsp</welcome-file></welcome-file-list>
 
 
 </web-app>

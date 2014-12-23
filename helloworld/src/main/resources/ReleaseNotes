@@ -1,0 +1,6 @@
+リリースノート
+1. a helloworld web application based on spring-mvc (+jquery feature)
+2. web application with database access feature(hibernate)
+3. spring web services feature(server-side) added to this web application
+4. logging using aspectj aop features
+5. spring security features <-on process
